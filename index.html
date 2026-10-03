@@ -4,73 +4,295 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Yehuda Stone · GTM Engineer & Applied AI</title>
-<meta name="description" content="Yehuda Stone builds AI agents and automation that do real revenue work.">
+<meta name="description" content="Yehuda Stone designs and ships production AI agents and automation for revenue teams, and measures them on pipeline.">
+<meta property="og:title" content="Yehuda Stone · GTM Engineer & Applied AI">
+<meta property="og:description" content="Production AI agents for revenue teams, measured on pipeline.">
+<meta property="og:image" content="https://raw.githubusercontent.com/stone-yehuda/worldforge-showcase/main/assets/banner.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fafaf9;--fg:#1c1917;--mute:#57534e;--line:#e7e5e4;--card:#fff;--acc:#2563eb}
-@media(prefers-color-scheme:dark){:root{--bg:#0c0a09;--fg:#f5f5f4;--mute:#a8a29e;--line:#292524;--card:#1c1917;--acc:#60a5fa}}
+:root{
+  --bg:#07090d;--bg2:#0d1118;--card:#10151e;--line:#1e2633;--fg:#e8edf4;--mute:#93a0b2;--dim:#5d6a7d;
+  --acc:#4f8cff;--acc2:#22d3ee;--ok:#34d399;--warm:#e8c478;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 Inter,system-ui,sans-serif}
-main{max-width:760px;margin:0 auto;padding:64px 16px}
-h1{font-size:2.4rem;line-height:1.15;margin:0 0 8px;letter-spacing:-.02em}
-.tag{color:var(--mute);font-size:1.15rem;margin:0 0 20px}
-.links a{display:inline-block;margin:0 8px 8px 0;padding:6px 14px;border:1px solid var(--line);border-radius:999px;color:var(--fg);text-decoration:none;font-size:.9rem}
-.links a:hover{border-color:var(--acc);color:var(--acc)}
-h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--mute);margin:48px 0 16px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(max-width:560px){.grid{grid-template-columns:1fr}}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
-.card b{display:block;margin-bottom:4px}
-.card p{margin:0;color:var(--mute);font-size:.92rem}
-.feature{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
-.feature h3{margin:0 0 6px}
-ul{margin:8px 0 0;padding-left:20px;color:var(--mute)}
-li{margin:4px 0}
-.chips span{display:inline-block;margin:0 6px 6px 0;padding:3px 10px;border-radius:6px;background:var(--line);font-size:.85rem}
-.note{font-size:.8rem;color:var(--mute);margin-top:12px}
-footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--mute);font-size:.9rem}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(7,9,13,.72);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-family:var(--mono);font-size:.9rem;letter-spacing:.02em;text-decoration:none}
+.logo b{color:var(--acc2);font-weight:500}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:.88rem;color:var(--mute)}
+nav ul a{text-decoration:none}nav ul a:hover{color:var(--fg)}
+@media(max-width:640px){nav ul{display:none}}
+
+/* hero */
+.hero{position:relative;padding:96px 0 72px;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;
+  background:
+   radial-gradient(600px 300px at 15% 10%,rgba(79,140,255,.20),transparent 70%),
+   radial-gradient(500px 280px at 85% 30%,rgba(34,211,238,.12),transparent 70%);
+  pointer-events:none}
+.hero:after{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:48px 48px;opacity:.35;
+  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 30%,transparent 75%);
+          mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 30%,transparent 75%);
+  pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.78rem;color:var(--mute);border:1px solid var(--line);background:rgba(16,21,30,.7);padding:6px 12px;border-radius:999px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(52,211,153,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.55)}70%{box-shadow:0 0 0 9px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+h1{font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.04;letter-spacing:-.035em;margin:22px 0 18px;font-weight:800}
+h1 .grad{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font-size:clamp(1.05rem,2vw,1.22rem);color:var(--mute);max-width:640px;margin:0 0 30px}
+.lede b{color:var(--fg);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;text-decoration:none;font-weight:600;font-size:.93rem;border:1px solid var(--line);background:var(--card);transition:transform .15s,border-color .15s}
+.btn:hover{transform:translateY(-1px);border-color:var(--acc)}
+.btn.primary{background:linear-gradient(135deg,var(--acc),#3b6fe0);border-color:transparent;color:#fff}
+.btn svg{width:16px;height:16px}
+.meta{margin-top:28px;display:flex;flex-wrap:wrap;gap:20px;font-family:var(--mono);font-size:.8rem;color:var(--dim)}
+.meta span:before{content:"// ";color:var(--line)}
+
+/* sections */
+section{padding:72px 0;border-top:1px solid var(--line)}
+.kicker{font-family:var(--mono);font-size:.78rem;color:var(--acc2);letter-spacing:.06em;margin:0 0 10px}
+h2{font-size:clamp(1.6rem,3.4vw,2.2rem);letter-spacing:-.025em;line-height:1.15;margin:0 0 14px}
+.sub{color:var(--mute);max-width:660px;margin:0 0 36px}
+
+/* pipeline diagram */
+.pipe{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:28px 20px;overflow-x:auto}
+.pipe svg{display:block;min-width:820px;width:100%;height:auto}
+.pipe .cap{font-family:var(--mono);font-size:.75rem;color:var(--dim);margin-top:14px}
+.flow{stroke-dasharray:6 6;animation:flow 1.2s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-12}}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;transition:border-color .2s,transform .2s;overflow:hidden}
+.card:hover{border-color:#2d3a50;transform:translateY(-2px)}
+.card:before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,var(--acc),var(--acc2));opacity:.0;transition:opacity .2s}
+.card:hover:before{opacity:1}
+.icon{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:rgba(79,140,255,.12);color:var(--acc);margin-bottom:14px}
+.icon svg{width:20px;height:20px}
+.card h3{margin:0 0 6px;font-size:1.08rem;letter-spacing:-.01em}
+.card p{margin:0 0 14px;color:var(--mute);font-size:.94rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-family:var(--mono);font-size:.72rem;color:var(--mute);border:1px solid var(--line);padding:2px 8px;border-radius:6px}
+
+/* principles */
+.princ{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.princ{grid-template-columns:1fr}}
+.pr{border-left:2px solid var(--acc);padding:4px 0 4px 18px}
+.pr .n{font-family:var(--mono);font-size:.75rem;color:var(--dim)}
+.pr h3{margin:4px 0 6px;font-size:1.02rem}
+.pr p{margin:0;color:var(--mute);font-size:.93rem}
+
+/* timeline */
+.tl{position:relative;margin:0;padding:0;list-style:none}
+.tl:before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--acc),var(--line))}
+.tl li{position:relative;padding:0 0 30px 38px}
+.tl li:before{content:"";position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--acc)}
+.tl li.now:before{background:var(--acc);box-shadow:0 0 0 5px rgba(79,140,255,.18)}
+.tl .when{font-family:var(--mono);font-size:.76rem;color:var(--dim)}
+.tl h3{margin:2px 0 4px;font-size:1.05rem}
+.tl h3 span{color:var(--mute);font-weight:500}
+.tl p{margin:0;color:var(--mute);font-size:.94rem;max-width:700px}
+
+/* stack */
+.stack{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:820px){.stack{grid-template-columns:repeat(2,1fr)}}
+.stack div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.stack h4{margin:0 0 8px;font-family:var(--mono);font-size:.75rem;font-weight:500;color:var(--acc2);letter-spacing:.05em;text-transform:uppercase}
+.stack p{margin:0;font-size:.9rem;color:var(--fg);line-height:1.8}
+
+/* worldforge */
+.wf{border-radius:18px;overflow:hidden;border:1px solid #3a2f1c;background:#0b0a08}
+.wf .banner{display:block;width:100%;aspect-ratio:1600/520;object-fit:cover}
+.wf .body{padding:26px;display:grid;grid-template-columns:1.1fr 1fr;gap:26px}
+@media(max-width:820px){.wf .body{grid-template-columns:1fr}}
+.wf h3{margin:0 0 8px;font-size:1.3rem;color:var(--warm);letter-spacing:.01em}
+.wf p{color:#b9ad97;margin:0 0 12px;font-size:.95rem}
+.wf ul{margin:0 0 16px;padding-left:18px;color:#b9ad97;font-size:.93rem}
+.wf li{margin:4px 0}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.shots img{width:100%;border-radius:8px;display:block;border:1px solid #2a2418}
+.shots img.wide{grid-column:span 2}
+.btn.gold{background:#1a150c;border-color:#5a4724;color:var(--warm)}
+.btn.gold:hover{border-color:var(--warm)}
+
+footer{border-top:1px solid var(--line);padding:40px 0 56px;color:var(--dim);font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{color:var(--mute);text-decoration:none;margin-left:16px}footer a:hover{color:var(--fg)}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.flow,.dot{animation:none}}
 </style>
 </head>
 <body>
-<main>
-<h1>Yehuda Stone</h1>
-<p class="tag">GTM Engineer & Applied AI Analyst. I build AI agents that do real revenue work.</p>
-<div class="links">
-<a href="https://www.linkedin.com/in/yehuda-stone-all-about-data/">LinkedIn</a>
-<a href="https://github.com/stone-yehuda">GitHub</a>
-<a>Austin, TX</a>
-</div>
 
-<h2>About</h2>
-<p>I sit where data, AI, and go-to-market meet. I design and ship production AI agents and automation pipelines for sales and revenue teams, then measure whether they actually move pipeline. 6+ years in data and analytics before moving into applied AI.</p>
+<nav><div class="wrap">
+  <a class="logo" href="#"><b>~/</b>yehuda-stone</a>
+  <ul><li><a href="#work">Work</a></li><li><a href="#approach">Approach</a></li><li><a href="#experience">Experience</a></li><li><a href="#worldforge">Worldforge</a></li></ul>
+</div></nav>
 
-<h2>What I build</h2>
-<div class="grid">
-<div class="card"><b>Agentic prospecting</b><p>Multi-step LangGraph agents that research accounts, personalize outreach, and route to humans for review-and-send.</p></div>
-<div class="card"><b>CRM automation</b><p>Agents that turn call transcripts into clean CRM updates, deal hygiene, and next steps.</p></div>
-<div class="card"><b>GTM data pipelines</b><p>Enrichment, scoring, and syncing across CRM, warehouse, and outreach tools.</p></div>
-<div class="card"><b>Evals & observability</b><p>Tracing, datasets, and evals so agents stay reliable in production.</p></div>
-</div>
+<header class="hero"><div class="wrap">
+  <span class="eyebrow"><i class="dot"></i>Applied AI Analyst II · Zello · Austin, TX</span>
+  <h1>I build AI agents that do <span class="grad">real revenue work.</span></h1>
+  <p class="lede">GTM engineer and applied AI practitioner. I design, ship and run <b>production agents and automation</b> for sales and revenue teams, then measure them by whether they <b>move pipeline</b>, not whether the demo was impressive.</p>
+  <div class="cta">
+    <a class="btn primary" href="https://www.linkedin.com/in/yehuda-stone-all-about-data/"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>Connect on LinkedIn</a>
+    <a class="btn" href="https://github.com/stone-yehuda"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>GitHub</a>
+    <a class="btn" href="#worldforge">See Worldforge →</a>
+  </div>
+  <div class="meta"><span>6+ years in data & analytics</span><span>LangGraph · HubSpot · Snowflake · dbt</span><span>English · Hebrew · Spanish</span></div>
+</div></header>
 
-<h2>Passion project</h2>
-<div class="feature">
-<h3>Worldforge</h3>
-<p style="margin:0;color:var(--mute)">An original science-fantasy RTS built in Godot 4, plus the world and a novel set inside it.</p>
-<ul>
-<li>4 asymmetric factions, 65 unit chassis across 3 tiers, heroes, tech trees, and siege</li>
-<li>Squad formations, an armor/ward combat model, knockback physics, 30 Hz sim</li>
-<li>Enemy AI with its own economy and waves, plus headless AI-vs-AI balance tooling</li>
-<li>Built with a multi-agent workflow: Claude Code, Codex, and Gemini CLI on one repo</li>
-</ul>
-<p class="note">Private while in active development.</p>
-</div>
+<section id="work"><div class="wrap">
+  <p class="kicker">01 / WHAT I BUILD</p>
+  <h2>Agents wired into the revenue stack</h2>
+  <p class="sub">Not chatbots bolted on the side. Agents that read from the CRM and the warehouse, do one job well, hand off to a human where judgment matters, and write clean results back.</p>
 
-<h2>Stack</h2>
-<div class="chips">
-<span>LangGraph</span><span>LangChain</span><span>LangSmith</span><span>Claude</span><span>OpenAI</span><span>MCP</span><span>Python</span><span>SQL</span><span>dbt</span><span>pandas</span><span>JavaScript</span><span>HubSpot</span><span>Pipedream</span><span>Gong</span><span>Godot 4</span><span>GDScript</span><span>Blender</span><span>Git</span>
-</div>
+  <div class="pipe reveal">
+    <svg viewBox="0 0 1000 200" role="img" aria-label="Agent pipeline: signals flow into an agent that researches, drafts, passes human review, and writes back to CRM, with evals tracing every step">
+      <defs>
+        <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#4f8cff"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#4f8cff"/></marker>
+      </defs>
+      <g font-family="JetBrains Mono,monospace" font-size="13" text-anchor="middle">
+        <g fill="#10151e" stroke="#1e2633" stroke-width="1.5">
+          <rect x="10" y="50" width="150" height="70" rx="12"/>
+          <rect x="215" y="50" width="150" height="70" rx="12" stroke="url(#g)" stroke-width="2"/>
+          <rect x="420" y="50" width="150" height="70" rx="12" stroke="url(#g)" stroke-width="2"/>
+          <rect x="625" y="50" width="150" height="70" rx="12" stroke="#e8c478"/>
+          <rect x="830" y="50" width="160" height="70" rx="12"/>
+        </g>
+        <g fill="#e8edf4" font-weight="500">
+          <text x="85" y="82">Signals</text><text x="290" y="82">Research</text><text x="495" y="82">Draft</text><text x="700" y="82">Human review</text><text x="910" y="82">CRM write-back</text>
+        </g>
+        <g fill="#93a0b2" font-size="11">
+          <text x="85" y="102">CRM · calls · intent</text><text x="290" y="102">LangGraph agent</text><text x="495" y="102">personalized output</text><text x="700" y="102">approve · edit · send</text><text x="910" y="102">fields · tasks · notes</text>
+        </g>
+        <g stroke="#4f8cff" stroke-width="2" fill="none" marker-end="url(#ar)">
+          <path class="flow" d="M162 85H211"/><path class="flow" d="M367 85H416"/><path class="flow" d="M572 85H621"/><path class="flow" d="M777 85H826"/>
+        </g>
+        <path d="M290 122V160H910V122" fill="none" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="3 5" opacity=".7"/>
+        <text x="600" y="182" fill="#22d3ee" font-size="12">tracing · datasets · evals on every step</text>
+      </g>
+    </svg>
+    <div class="cap">The shape most of my builds share: narrow agents, a human gate where it matters, everything traced.</div>
+  </div>
 
-<footer>Always happy to talk GTM engineering, agent design, and AI in revenue teams.</footer>
-</main>
+  <div class="grid" style="margin-top:16px">
+    <div class="card reveal">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+      <h3>Agentic prospecting</h3>
+      <p>Multi-step LangGraph agents that research accounts, personalize outreach, and route to a human for review-and-send instead of firing blind.</p>
+      <div class="tags"><span>LangGraph</span><span>Claude</span><span>OpenAI</span><span>human-in-the-loop</span></div>
+    </div>
+    <div class="card reveal">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H5.2L4 17.2V4z"/><path d="M8 9h8M8 12h5"/></svg></div>
+      <h3>Call-to-CRM automation</h3>
+      <p>Agents that turn call transcripts into clean CRM updates, deal hygiene and next steps, so reps sell instead of typing.</p>
+      <div class="tags"><span>Gong</span><span>HubSpot</span><span>Pipedream</span></div>
+    </div>
+    <div class="card reveal">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+      <h3>GTM data pipelines</h3>
+      <p>Enrichment, scoring and sync across CRM, warehouse and outreach tools, modelled in SQL and dbt so the numbers agree everywhere.</p>
+      <div class="tags"><span>Snowflake</span><span>dbt</span><span>SQL</span><span>Python</span></div>
+    </div>
+    <div class="card reveal">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg></div>
+      <h3>Evals & observability</h3>
+      <p>Tracing, datasets and evals that keep agents reliable after launch, and catch a regression before a rep or a customer does.</p>
+      <div class="tags"><span>LangSmith</span><span>evals</span><span>tracing</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="approach"><div class="wrap">
+  <p class="kicker">02 / HOW I WORK</p>
+  <h2>Boring reliability beats a clever demo</h2>
+  <p class="sub">Production AI fails quietly. These are the rules I hold my own builds to.</p>
+  <div class="princ">
+    <div class="pr reveal"><span class="n">01</span><h3>Measure the business outcome</h3><p>An agent is judged on pipeline, time saved and data quality, not on how good one output looked in a screenshot.</p></div>
+    <div class="pr reveal"><span class="n">02</span><h3>Humans where judgment lives</h3><p>Agents draft and prepare; people approve anything customer-facing. Autonomy is earned with evidence, one step at a time.</p></div>
+    <div class="pr reveal"><span class="n">03</span><h3>If it isn't traced, it isn't shipped</h3><p>Every run leaves a trace, every failure becomes a dataset row, and every change runs against evals before it goes live.</p></div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <p class="kicker">03 / EXPERIENCE</p>
+  <h2>From analytics to applied AI</h2>
+  <p class="sub">Six-plus years of data work under the agent work, which is why the agents get the data right.</p>
+  <ul class="tl">
+    <li class="now reveal"><span class="when">2026 → now</span><h3>Applied AI Analyst II <span>· Zello</span></h3><p>Agentic AI and GTM automation for the revenue org: LangGraph agents, HubSpot and Pipedream workflows, and Snowflake/dbt data underneath.</p></li>
+    <li class="reveal"><span class="when">2024 → 2026</span><h3>Business Data Analyst <span>· Zello</span></h3><p>Analytics and BI across the business. Promoted into the applied AI role.</p></li>
+    <li class="reveal"><span class="when">2022 → 2023</span><h3>Data &amp; ETL <span>· Entrio, Tel Aviv</span></h3><p>ETL, web scraping and Tableau reporting; managed the analyst interns.</p></li>
+    <li class="reveal"><span class="when">2020 → 2022</span><h3>Investment Data <span>· Navat Capital Management</span></h3><p>Investment and KPI data in R and Python.</p></li>
+    <li class="reveal"><span class="when">2019 → 2022</span><h3>B.A. Economics & Business Administration <span>· Reichman University</span></h3><p>Class representative; data club.</p></li>
+    <li class="reveal"><span class="when">2015 → 2018</span><h3>Squad Commander → Company Sergeant Major <span>· IDF</span></h3><p>Leading people under pressure, which turns out to transfer.</p></li>
+  </ul>
+</div></section>
+
+<section id="stack"><div class="wrap">
+  <p class="kicker">04 / STACK</p>
+  <h2>Tools I ship with</h2>
+  <div class="stack" style="margin-top:28px">
+    <div class="reveal"><h4>Agents & LLMs</h4><p>LangGraph<br>LangChain<br>LangSmith<br>Claude · OpenAI<br>MCP</p></div>
+    <div class="reveal"><h4>Data</h4><p>SQL<br>Snowflake<br>dbt<br>Python · pandas<br>R</p></div>
+    <div class="reveal"><h4>GTM systems</h4><p>HubSpot<br>Pipedream<br>Gong<br>Omni · Hex<br>Tableau</p></div>
+    <div class="reveal"><h4>Building for fun</h4><p>Godot 4<br>GDScript<br>Blender<br>Claude Code · Codex<br>Git</p></div>
+  </div>
+</div></section>
+
+<section id="worldforge"><div class="wrap">
+  <p class="kicker">05 / PASSION PROJECT</p>
+  <h2>Worldforge</h2>
+  <p class="sub">An original science-fantasy RTS I'm building in Godot 4, plus the world and a novel set inside it. It's also where I push multi-agent engineering further than a day job allows.</p>
+  <div class="wf reveal">
+    <img class="banner" src="https://raw.githubusercontent.com/stone-yehuda/worldforge-showcase/main/assets/banner.jpg" alt="Worldforge" loading="lazy">
+    <div class="body">
+      <div>
+        <h3>Magic and machine, at war over how far to go</h3>
+        <p>Four asymmetric factions, squad combat in formation, and an enemy AI that runs its own economy.</p>
+        <ul>
+          <li>4 factions, 65 unit chassis across 3 tiers, heroes, tech trees and siege</li>
+          <li>Armor and ward combat model, knockback and braced pikes on a 30 Hz sim</li>
+          <li>Headless AI-vs-AI match simulator for balance sweeps</li>
+          <li>Built by a <b style="color:var(--warm)">multi-agent team</b>: Claude Code, Codex and Gemini on one repo, with claims, cross-reviews and isolated worktrees</li>
+        </ul>
+        <a class="btn gold" href="https://github.com/stone-yehuda/worldforge-showcase">Open the gallery →</a>
+      </div>
+      <div class="shots">
+        <img src="https://raw.githubusercontent.com/stone-yehuda/worldforge-showcase/main/assets/ingame_battle.jpg" alt="Battle" loading="lazy">
+        <img src="https://raw.githubusercontent.com/stone-yehuda/worldforge-showcase/main/assets/ingame_base_raid.jpg" alt="Base raid" loading="lazy">
+        <img class="wide" src="https://raw.githubusercontent.com/stone-yehuda/worldforge-showcase/main/assets/forewarned_roster.jpg" alt="Forewarned units" loading="lazy">
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>Always happy to talk GTM engineering, agent design and AI in revenue teams.</span>
+  <span><a href="https://www.linkedin.com/in/yehuda-stone-all-about-data/">LinkedIn</a><a href="https://github.com/stone-yehuda">GitHub</a></span>
+</div></footer>
+
+<script>
+try{
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}catch(e){document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
 </body>
 </html>
