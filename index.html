@@ -4,16 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Yehuda Stone · GTM Engineer & Applied AI</title>
-<meta name="description" content="Yehuda Stone designs and ships production AI agents and automation for revenue teams, and measures them on pipeline.">
+<meta name="description" content="Yehuda Stone builds AI agents and automation for sales and support teams, plus the data and evals underneath.">
+<link rel="canonical" href="https://stone-yehuda.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2307090d'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' fill='%2322d3ee' text-anchor='middle'%3EYS%3C/text%3E%3C/svg%3E">
 <meta property="og:title" content="Yehuda Stone · GTM Engineer & Applied AI">
-<meta property="og:description" content="Production AI agents for revenue teams, measured on pipeline.">
-<meta property="og:image" content="https://raw.githubusercontent.com/stone-yehuda/worldforge-showcase/main/assets/banner.jpg">
+<meta property="og:description" content="I build AI agents and automation for sales and support teams.">
+<meta property="og:url" content="https://stone-yehuda.github.io/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://stone-yehuda.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#07090d;--bg2:#0d1118;--card:#10151e;--line:#1e2633;--fg:#e8edf4;--mute:#93a0b2;--dim:#5d6a7d;
+  --bg:#07090d;--bg2:#0d1118;--card:#10151e;--line:#1e2633;--fg:#e8edf4;--mute:#93a0b2;--dim:#7c8799;
   --acc:#4f8cff;--acc2:#22d3ee;--ok:#34d399;--warm:#e8c478;
   --mono:"JetBrains Mono",ui-monospace,monospace;
 }
@@ -47,8 +54,7 @@ nav ul a{text-decoration:none}nav ul a:hover{color:var(--fg)}
   pointer-events:none}
 .hero .wrap{position:relative;z-index:1}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.78rem;color:var(--mute);border:1px solid var(--line);background:rgba(16,21,30,.7);padding:6px 12px;border-radius:999px}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(52,211,153,.6);animation:pulse 2.2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.55)}70%{box-shadow:0 0 0 9px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--acc2)}
 h1{font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.04;letter-spacing:-.035em;margin:22px 0 18px;font-weight:800}
 h1 .grad{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .lede{font-size:clamp(1.05rem,2vw,1.22rem);color:var(--mute);max-width:640px;margin:0 0 30px}
@@ -56,7 +62,7 @@ h1 .grad{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-backgr
 .cta{display:flex;flex-wrap:wrap;gap:10px}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;text-decoration:none;font-weight:600;font-size:.93rem;border:1px solid var(--line);background:var(--card);transition:transform .15s,border-color .15s}
 .btn:hover{transform:translateY(-1px);border-color:var(--acc)}
-.btn.primary{background:linear-gradient(135deg,var(--acc),#3b6fe0);border-color:transparent;color:#fff}
+.btn.primary{background:linear-gradient(135deg,#3b6fe0,#2f5cc4);border-color:transparent;color:#fff}
 .btn svg{width:16px;height:16px}
 .meta{margin-top:28px;display:flex;flex-wrap:wrap;gap:20px;font-family:var(--mono);font-size:.8rem;color:var(--dim)}
 .meta span:before{content:"// ";color:var(--line)}
@@ -70,7 +76,9 @@ h2{font-size:clamp(1.6rem,3.4vw,2.2rem);letter-spacing:-.025em;line-height:1.15;
 /* pipeline diagram */
 .pipe{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:28px 20px;overflow-x:auto}
 .pipe svg{display:block;min-width:820px;width:100%;height:auto}
-.pipe .cap{font-family:var(--mono);font-size:.75rem;color:var(--dim);margin-top:14px}
+.pipe .cap{display:none;font-family:var(--mono);font-size:.75rem;color:var(--dim);margin-top:12px}
+@media(max-width:820px){.pipe .cap{display:block}}
+.pipe:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 .flow{stroke-dasharray:6 6;animation:flow 1.2s linear infinite}
 @keyframes flow{to{stroke-dashoffset:-12}}
 
@@ -112,7 +120,7 @@ h2{font-size:clamp(1.6rem,3.4vw,2.2rem);letter-spacing:-.025em;line-height:1.15;
 .stack{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 @media(max-width:820px){.stack{grid-template-columns:repeat(2,1fr)}}
 .stack div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
-.stack h4{margin:0 0 8px;font-family:var(--mono);font-size:.75rem;font-weight:500;color:var(--acc2);letter-spacing:.05em;text-transform:uppercase}
+.stack h3{margin:0 0 8px;font-family:var(--mono);font-size:.75rem;font-weight:500;color:var(--acc2);letter-spacing:.05em;text-transform:uppercase}
 .stack p{margin:0;font-size:.9rem;color:var(--fg);line-height:1.8}
 
 /* worldforge */
@@ -132,24 +140,27 @@ h2{font-size:clamp(1.6rem,3.4vw,2.2rem);letter-spacing:-.025em;line-height:1.15;
 
 footer{border-top:1px solid var(--line);padding:40px 0 56px;color:var(--dim);font-size:.88rem}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
-footer a{color:var(--mute);text-decoration:none;margin-left:16px}footer a:hover{color:var(--fg)}
+footer .links{display:flex;gap:16px}footer a{color:var(--mute);text-decoration:none}footer a:hover{color:var(--fg)}
 
+.skip{position:absolute;left:-9999px;top:8px;z-index:20;background:var(--card);border:1px solid var(--acc);padding:8px 12px;border-radius:8px}.skip:focus{left:16px}
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}
 .reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.flow,.dot{animation:none}}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.flow{animation:none}}
 </style>
 </head>
 <body>
+<a class="skip" href="#work">Skip to content</a>
 
 <nav><div class="wrap">
   <a class="logo" href="#"><b>~/</b>yehuda-stone</a>
   <ul><li><a href="#work">Work</a></li><li><a href="#approach">Approach</a></li><li><a href="#experience">Experience</a></li><li><a href="#worldforge">Worldforge</a></li></ul>
 </div></nav>
 
+<main>
 <header class="hero"><div class="wrap">
   <span class="eyebrow"><i class="dot"></i>Applied AI Analyst II · Zello · Austin, TX</span>
-  <h1>I build AI agents that do <span class="grad">real revenue work.</span></h1>
-  <p class="lede">GTM engineer and applied AI practitioner. I design, ship and run <b>production agents and automation</b> for sales and revenue teams, then measure them by whether they <b>move pipeline</b>.</p>
+  <h1>I build AI agents for <span class="grad">sales and support teams.</span></h1>
+  <p class="lede">I design, ship and run the <b>agents and automation</b> our sales and support teams use every day, plus the <b>data and evals</b> underneath.</p>
   <div class="cta">
     <a class="btn primary" href="https://www.linkedin.com/in/yehuda-stone-all-about-data/"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>Connect on LinkedIn</a>
     <a class="btn" href="https://github.com/stone-yehuda"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>GitHub</a>
@@ -160,68 +171,89 @@ footer a{color:var(--mute);text-decoration:none;margin-left:16px}footer a:hover{
 
 <section id="work"><div class="wrap">
   <p class="kicker">01 / WHAT I BUILD</p>
-  <h2>Agents wired into the revenue stack</h2>
-  <p class="sub">I build agents that plug into the tools revenue teams already use. They pull from the CRM and the warehouse, do one job, hand off to a person when it needs judgment, and write the results back. Underneath them sit the data pipelines, the reporting and the sending infrastructure that make the whole thing work.</p>
+  <h2>Agents and automation for sales and support</h2>
+  <p class="sub">Here's the kind of work I do day to day. The diagram shows how one outbound agent runs from start to finish.</p>
 
-  <div class="pipe reveal">
-    <svg viewBox="0 0 1000 200" role="img" aria-label="Agent pipeline: signals flow into an agent that researches, drafts, passes human review, and writes back to CRM, with evals tracing every step">
+  <div class="pipe reveal" role="region" tabindex="0" aria-label="Agent pipeline diagram">
+    <svg viewBox="0 0 1000 262" role="img" aria-label="Agent pipeline: signals flow into research and drafting, then a quality check. Most runs send automatically; flagged runs go to a person. Both write back to the CRM, with evals tracing every step">
       <defs>
         <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#4f8cff"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
         <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#4f8cff"/></marker>
+        <marker id="aw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#e8c478"/></marker>
       </defs>
       <g font-family="JetBrains Mono,monospace" font-size="13" text-anchor="middle">
         <g fill="#10151e" stroke="#1e2633" stroke-width="1.5">
-          <rect x="10" y="50" width="150" height="70" rx="12"/>
-          <rect x="215" y="50" width="150" height="70" rx="12" stroke="url(#g)" stroke-width="2"/>
-          <rect x="420" y="50" width="150" height="70" rx="12" stroke="url(#g)" stroke-width="2"/>
-          <rect x="625" y="50" width="150" height="70" rx="12" stroke="#e8c478"/>
-          <rect x="830" y="50" width="160" height="70" rx="12"/>
+          <rect x="10" y="85" width="135" height="70" rx="12"/>
+          <rect x="190" y="85" width="135" height="70" rx="12" stroke="url(#g)" stroke-width="2"/>
+          <rect x="370" y="85" width="135" height="70" rx="12" stroke="url(#g)" stroke-width="2"/>
+          <rect x="550" y="85" width="135" height="70" rx="12" stroke="url(#g)" stroke-width="2"/>
+          <rect x="725" y="22" width="130" height="66" rx="12" stroke="#34d399" stroke-width="2"/>
+          <rect x="725" y="152" width="130" height="66" rx="12" stroke="#e8c478"/>
+          <rect x="893" y="85" width="100" height="70" rx="12"/>
         </g>
         <g fill="#e8edf4" font-weight="500">
-          <text x="85" y="82">Signals</text><text x="290" y="82">Research</text><text x="495" y="82">Draft</text><text x="700" y="82">Human review</text><text x="910" y="82">CRM write-back</text>
+          <text x="77" y="117">Signals</text><text x="257" y="117">Research</text><text x="437" y="117">Draft</text><text x="617" y="117">Quality check</text>
+          <text x="790" y="52">Auto-send</text><text x="790" y="182">Human review</text><text x="943" y="117">CRM</text>
         </g>
         <g fill="#93a0b2" font-size="11">
-          <text x="85" y="102">CRM · calls · intent</text><text x="290" y="102">LangGraph agent</text><text x="495" y="102">personalized output</text><text x="700" y="102">approve · edit · send</text><text x="910" y="102">fields · tasks · notes</text>
+          <text x="77" y="137">CRM · intent</text><text x="257" y="137">AI agent</text><text x="437" y="137">personal email</text><text x="617" y="137">automated checks</text>
+          <text x="790" y="72">most runs</text><text x="790" y="202">flagged runs</text><text x="943" y="137">write-back</text>
         </g>
         <g stroke="#4f8cff" stroke-width="2" fill="none" marker-end="url(#ar)">
-          <path class="flow" d="M162 85H211"/><path class="flow" d="M367 85H416"/><path class="flow" d="M572 85H621"/><path class="flow" d="M777 85H826"/>
+          <path class="flow" d="M147 120H186"/><path class="flow" d="M327 120H366"/><path class="flow" d="M507 120H546"/>
         </g>
-        <path d="M290 122V160H910V122" fill="none" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="3 5" opacity=".7"/>
-        <text x="600" y="182" fill="#22d3ee" font-size="12">tracing · datasets · evals on every step</text>
+        <path class="flow" d="M687 112C706 112 704 55 721 55" stroke="#34d399" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+        <path class="flow" d="M687 128C706 128 704 185 721 185" stroke="#e8c478" stroke-width="2" fill="none" marker-end="url(#aw)"/>
+        <path class="flow" d="M857 55C876 55 874 110 889 110" stroke="#34d399" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+        <path class="flow" d="M857 185C876 185 874 130 889 130" stroke="#e8c478" stroke-width="2" fill="none" marker-end="url(#aw)"/>
+        <path d="M257 157V232H943V157" fill="none" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="3 5" opacity=".7"/>
+        <text x="600" y="254" fill="#22d3ee" font-size="12">tracing · datasets · evals on every step</text>
       </g>
     </svg>
-    <div class="cap">Most of what I build follows this shape: small agents, a person approving anything customer-facing, and every step traced.</div>
+    <div class="cap">Scroll sideways to see the full flow →</div>
   </div>
 
   <div class="grid" style="margin-top:16px">
     <div class="card reveal">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
-      <h3>Agentic prospecting</h3>
-      <p>LangGraph agents that research accounts and draft personalized outreach. A rep reviews it and sends it, so nothing goes out blind.</p>
-      <div class="tags"><span>LangGraph</span><span>Claude</span><span>OpenAI</span><span>human-in-the-loop</span></div>
+      <div class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+      <h3>Outbound prospecting</h3>
+      <p>Outbound agents that research an account, find the right people and write a personal first email, in the prospect's own language. I've built them for new accounts, warm leads and existing customers. Most emails go out on their own after automated quality checks, and anything flagged goes to a person first.</p>
+      <div class="tags"><span>LangGraph</span><span>LLMs</span><span>enrichment</span><span>quality checks</span></div>
     </div>
     <div class="card reveal">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H5.2L4 17.2V4z"/><path d="M8 9h8M8 12h5"/></svg></div>
+      <div class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H5.2L4 17.2V4z"/><path d="M8 9h8M8 12h5"/></svg></div>
       <h3>Call-to-CRM automation</h3>
-      <p>Agents that turn call transcripts into CRM updates and next steps, so reps spend their time selling instead of typing notes.</p>
-      <div class="tags"><span>Gong</span><span>HubSpot</span><span>Pipedream</span></div>
+      <p>An assistant that reads sales calls and keeps the CRM current: deal updates, next steps and notes, ready for the rep to check. It saves reps from writing up every call by hand.</p>
+      <div class="tags"><span>call notes</span><span>CRM hygiene</span></div>
     </div>
     <div class="card reveal">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+      <div class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
       <h3>Data pipelines & reporting</h3>
-      <p>I set up and manage the pipelines that move GTM data between the CRM, the warehouse and our outreach tools, plus the reporting on top, so everyone works from the same numbers.</p>
-      <div class="tags"><span>Snowflake</span><span>dbt</span><span>SQL</span><span>Omni</span><span>Hex</span></div>
+      <p>I build and maintain the data models that turn raw sales, marketing and billing data into tables people can trust, plus the dashboards on top. That includes tying won deals in the CRM to what actually gets billed. The agents read from the same models, so they and the team work from the same numbers.</p>
+      <div class="tags"><span>SQL</span><span>dbt</span><span>cloud warehouse</span><span>BI dashboards</span></div>
     </div>
     <div class="card reveal">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+      <div class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
       <h3>Inboxes & deliverability</h3>
-      <p>I set up and manage multiple sending inboxes and keep deliverability healthy, so the outreach our agents help write actually lands in the inbox.</p>
-      <div class="tags"><span>multi-inbox</span><span>deliverability</span><span>domain health</span></div>
+      <p>I run the email sending setup behind our outbound agents: how volume spreads across domains and mailboxes, daily send caps, bringing warmed inboxes into rotation, and watching domain health.</p>
+      <div class="tags"><span>deliverability</span><span>send limits</span><span>domain health</span></div>
+    </div>
+    <div class="card reveal">
+      <div class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="2" y="14" width="5" height="6" rx="1.5"/><rect x="17" y="14" width="5" height="6" rx="1.5"/></svg></div>
+      <h3>Support agents</h3>
+      <p>Agents that help the support team resolve routine tickets on their own. I also run a regular review of the tickets they hand off to a person, so we know what to teach them next.</p>
+      <div class="tags"><span>ticket triage</span><span>auto-resolution</span><span>human handoff</span></div>
+    </div>
+    <div class="card reveal">
+      <div class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .8-3 2s1.3 1.7 3 2 3 .8 3 2-1.3 2-3 2c-1.4 0-2.5-.5-3-1.5M12 6v2M12 16v2"/></svg></div>
+      <h3>Agent cost &amp; ROI</h3>
+      <p>I track what each agent costs and what it produces: cost per meeting, and attribution from the first email to the closed deal. Then I cut waste with prompt caching, the right model for each step, and never paying twice for the same contact data.</p>
+      <div class="tags"><span>cost per meeting</span><span>attribution</span><span>prompt caching</span></div>
     </div>
     <div class="card reveal wide">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg></div>
-      <h3>Evals & observability</h3>
-      <p>Tracing, datasets and evals that keep agents reliable after launch, and catch problems before a rep or a customer does.</p>
+      <div class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg></div>
+      <h3>Evals &amp; observability</h3>
+      <p>Every agent run leaves a trace. I turn failures into test cases and run changes against evals before they ship, so I catch problems in testing, before they reach a prospect. Prompts live in the repo next to the code and go through the same review and tests.</p>
       <div class="tags"><span>LangSmith</span><span>evals</span><span>tracing</span></div>
     </div>
   </div>
@@ -229,26 +261,23 @@ footer a{color:var(--mute);text-decoration:none;margin-left:16px}footer a:hover{
 
 <section id="approach"><div class="wrap">
   <p class="kicker">02 / HOW I WORK</p>
-  <h2>How I build</h2>
-  <p class="sub">A few rules I hold my own work to.</p>
+  <h2>Rules I build by</h2>
   <div class="princ">
-    <div class="pr reveal"><span class="n">01</span><h3>Measure the business outcome</h3><p>I judge an agent by pipeline, time saved and data quality. One good-looking output doesn't count.</p></div>
-    <div class="pr reveal"><span class="n">02</span><h3>Keep a person in the loop</h3><p>Agents draft and prepare, and people approve anything customer-facing. An agent only gets more autonomy once the results show it's ready.</p></div>
-    <div class="pr reveal"><span class="n">03</span><h3>Trace everything</h3><p>Every run leaves a trace, failures turn into test cases, and every change runs against evals before it goes live.</p></div>
+    <div class="pr reveal"><span class="n">01</span><h3>Measure the business outcome</h3><p>I judge an agent by pipeline, time saved and data quality.</p></div>
+    <div class="pr reveal"><span class="n">02</span><h3>Earn the autonomy</h3><p>Agents start with a person reviewing their work. Once the results hold up, they run on their own, with automated checks on every output and a person for anything that gets flagged.</p></div>
+    <div class="pr reveal"><span class="n">03</span><h3>Keep agents small</h3><p>Each agent does one job. Small agents are easier to test, easier to debug and easier to swap out when a better model comes along.</p></div>
   </div>
 </div></section>
 
 <section id="experience"><div class="wrap">
   <p class="kicker">03 / EXPERIENCE</p>
   <h2>From analytics to applied AI</h2>
-  <p class="sub">I spent six-plus years working in data before moving into AI. That background is a big reason the agents I build get the data right.</p>
+  <p class="sub">I joined Zello as a Business Data Analyst and found myself spending more and more time building AI agents and automation. At some point, the old title just stopped being accurate.</p>
   <ul class="tl">
-    <li class="now reveal"><span class="when">2026 → now</span><h3>Applied AI Analyst II <span>· Zello</span></h3><p>Building AI agents and automation for the revenue team, with LangGraph, HubSpot and Pipedream on top of Snowflake and dbt.</p></li>
-    <li class="reveal"><span class="when">2024 → 2026</span><h3>Business Data Analyst <span>· Zello</span></h3><p>Analytics and BI across the business. Over time I spent more and more of it building AI agents and automation, and got promoted into the applied AI role.</p></li>
-    <li class="reveal"><span class="when">2022 → 2023</span><h3>Data &amp; ETL <span>· Entrio, Tel Aviv</span></h3><p>ETL, web scraping and Tableau reporting. I also managed our group of interns.</p></li>
-    <li class="reveal"><span class="when">2020 → 2022</span><h3>Investment Data <span>· Navat Capital Management</span></h3><p>Investment and KPI data in R and Python.</p></li>
-    <li class="reveal"><span class="when">2019 → 2022</span><h3>B.A. Economics & Business Administration <span>· Reichman University</span></h3><p>Class representative; data club.</p></li>
-    <li class="reveal"><span class="when">2015 → 2018</span><h3>Squad Commander → Company Sergeant Major <span>· IDF</span></h3><p>Led soldiers as a squad commander and later as company sergeant major.</p></li>
+    <li class="now reveal"><span class="when">2026 → now</span><h3>Applied AI Analyst II <span>· Zello</span></h3><p>Building AI agents and automation for the sales and support teams: outbound prospecting, keeping the CRM current, support tickets, and the data, cost tracking and evals underneath.</p></li>
+    <li class="reveal"><span class="when">2024 → 2026</span><h3>Business Data Analyst <span>· Zello</span></h3><p>Analytics and BI across the business. Promoted into the applied AI role in 2026.</p></li>
+    <li class="reveal"><span class="when">2022 → 2023</span><h3>Data Analyst <span>· Entrio</span></h3><p>ETL, web scraping and Tableau reporting. I also managed our group of interns.</p></li>
+    <li class="reveal"><span class="when">2020 → 2022</span><h3>Data Analyst <span>· Navat Capital Management</span></h3><p>Investment and KPI data in R and Python.</p></li>
   </ul>
 </div></section>
 
@@ -256,10 +285,10 @@ footer a{color:var(--mute);text-decoration:none;margin-left:16px}footer a:hover{
   <p class="kicker">04 / STACK</p>
   <h2>Tools I use</h2>
   <div class="stack" style="margin-top:28px">
-    <div class="reveal"><h4>Agents & LLMs</h4><p>LangGraph<br>LangChain<br>LangSmith<br>Claude · OpenAI<br>MCP</p></div>
-    <div class="reveal"><h4>Data</h4><p>SQL<br>Snowflake<br>dbt<br>Python · pandas<br>R</p></div>
-    <div class="reveal"><h4>GTM systems</h4><p>HubSpot<br>Pipedream<br>Gong<br>Omni · Hex<br>Tableau</p></div>
-    <div class="reveal"><h4>Building for fun</h4><p>Godot 4<br>GDScript<br>Blender<br>Claude Code · Codex<br>Git</p></div>
+    <div class="reveal"><h3>Agents & LLMs</h3><p>LangGraph<br>LangChain<br>LangSmith<br>Claude · OpenAI<br>MCP</p></div>
+    <div class="reveal"><h3>Data</h3><p>SQL<br>Snowflake<br>dbt<br>Python · pandas<br>R</p></div>
+    <div class="reveal"><h3>GTM and BI</h3><p>HubSpot<br>Windmill<br>Gong<br>Omni · Hex<br>Tableau</p></div>
+    <div class="reveal"><h3>Building for fun</h3><p>Godot 4<br>GDScript<br>Blender<br>Claude Code · Codex<br>Git</p></div>
   </div>
 </div></section>
 
@@ -268,7 +297,7 @@ footer a{color:var(--mute);text-decoration:none;margin-left:16px}footer a:hover{
   <h2>Worldforge</h2>
   <p class="sub">An original science-fantasy RTS I'm building in Godot 4, plus the world and a novel set in it. It's also where I try out multi-agent engineering ideas before I bring them to work.</p>
   <div class="wf reveal">
-    <img class="banner" src="https://raw.githubusercontent.com/stone-yehuda/worldforge-showcase/main/assets/banner.jpg" alt="Worldforge" loading="lazy">
+    <img class="banner" src="https://raw.githubusercontent.com/stone-yehuda/worldforge-showcase/main/assets/banner.jpg" alt="Worldforge banner art" loading="lazy">
     <div class="body">
       <div>
         <h3>What's in it so far</h3>
@@ -282,17 +311,19 @@ footer a{color:var(--mute);text-decoration:none;margin-left:16px}footer a:hover{
         <a class="btn gold" href="https://github.com/stone-yehuda/worldforge-showcase">Open the gallery →</a>
       </div>
       <div class="shots">
-        <img src="https://raw.githubusercontent.com/stone-yehuda/worldforge-showcase/main/assets/ingame_battle.jpg" alt="Battle" loading="lazy">
-        <img src="https://raw.githubusercontent.com/stone-yehuda/worldforge-showcase/main/assets/ingame_base_raid.jpg" alt="Base raid" loading="lazy">
-        <img class="wide" src="https://raw.githubusercontent.com/stone-yehuda/worldforge-showcase/main/assets/forewarned_roster.jpg" alt="Forewarned units" loading="lazy">
+        <img src="https://raw.githubusercontent.com/stone-yehuda/worldforge-showcase/main/assets/ingame_battle.jpg" alt="Worldforge in-game battle between squads in formation" loading="lazy">
+        <img src="https://raw.githubusercontent.com/stone-yehuda/worldforge-showcase/main/assets/ingame_base_raid.jpg" alt="Worldforge in-game raid on an enemy base" loading="lazy">
+        <img class="wide" src="https://raw.githubusercontent.com/stone-yehuda/worldforge-showcase/main/assets/forewarned_roster.jpg" alt="Roster of units from one Worldforge faction" loading="lazy">
       </div>
     </div>
   </div>
 </div></section>
 
+</main>
+
 <footer><div class="wrap">
-  <span>Always happy to chat about GTM engineering, agents and AI in revenue teams. Reach out on LinkedIn!</span>
-  <span><a href="https://www.linkedin.com/in/yehuda-stone-all-about-data/">LinkedIn</a><a href="https://github.com/stone-yehuda">GitHub</a></span>
+  <span>I'm always happy to talk about AI agents for sales and support teams. Reach out on LinkedIn.</span>
+  <span class="links"><a href="https://www.linkedin.com/in/yehuda-stone-all-about-data/">LinkedIn</a><a href="https://github.com/stone-yehuda">GitHub</a></span>
 </div></footer>
 
 <script>

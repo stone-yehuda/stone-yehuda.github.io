@@ -4,30 +4,17 @@ This repo is Yehuda's personal site, served by GitHub Pages at https://stone-yeh
 The whole site is one file, `index.html`, with no build step. A push to `main` deploys it in
 about a minute.
 
-## Why this note exists
+## Work sections: keep them high level
 
-The site was redesigned on 2026-10-03 by a Claude session that had his career history but not
-the details of his day-to-day GTM work. **The Claude he uses at work has that context**, so
-the job of whoever opens this repo next is to make the work sections specific and accurate.
+Yehuda's call (2026-10-05): the work content stays high level so nothing Zello-specific leaks.
+Section `01 / WHAT I BUILD` (`id="work"`) was rewritten on that basis. Describe the kind of
+work (outbound agents, call-to-CRM upkeep, data models and dashboards, sending setup, evals),
+not how Zello wires it together.
 
-## What to improve
-
-Section `01 / WHAT I BUILD` (`id="work"`) is the priority. The current cards are accurate but
-general. Fill them in from what he actually built and runs:
-
-- **Data pipelines & reporting.** How he sets up and manages the pipelines (sources, what moves
-  where, the warehouse and dbt layer) and the reporting on top (Omni, Hex, the dashboards people
-  actually use).
-- **Inboxes & deliverability.** How he sets up and manages multiple sending inboxes, and what he
-  does to keep deliverability healthy. Name the real tools and practices. The current tags
-  (`multi-inbox`, `deliverability`, `domain health`) are placeholders.
-- **Agentic prospecting, call-to-CRM automation, evals & observability.** Swap general phrasing
-  for the real workflow: what triggers it, what it writes back, who reviews it.
-- **Results.** If he is comfortable sharing any outcome (time saved, volume handled, adoption),
-  one real number per card beats any adjective. Ask him before you publish any number.
-
-The diagram in that section (signals → research → draft → human review → CRM write-back) can
-change if his real flow looks different.
+- No internal project or agent names, no internal tool names, no vendor-to-workflow mapping.
+- No numbers or results unless he gives them to you and says they're fine to publish.
+- General tool names are fine in the `04 / STACK` list and hero meta line, the way they'd
+  appear on a resume.
 
 ## Guardrails
 
