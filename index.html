@@ -160,7 +160,7 @@ footer .links{display:flex;gap:16px}footer a{color:var(--mute);text-decoration:n
 <header class="hero"><div class="wrap">
   <span class="eyebrow"><i class="dot"></i>Applied AI Analyst II · Zello · Austin, TX</span>
   <h1>I build AI agents for <span class="grad">sales and support teams.</span></h1>
-  <p class="lede">I design, ship and run the <b>agents and automation</b> our sales and support teams use every day, plus the <b>data and evals</b> underneath.</p>
+  <p class="lede">I design, ship and run them in production, along with the <b>data models</b> and <b>evals</b> underneath.</p>
   <div class="cta">
     <a class="btn primary" href="https://www.linkedin.com/in/yehuda-stone-all-about-data/"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>Connect on LinkedIn</a>
     <a class="btn" href="https://github.com/stone-yehuda"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>GitHub</a>
@@ -172,7 +172,7 @@ footer .links{display:flex;gap:16px}footer a{color:var(--mute);text-decoration:n
 <section id="work"><div class="wrap">
   <p class="kicker">01 / WHAT I BUILD</p>
   <h2>Agents and automation for sales and support</h2>
-  <p class="sub">Here's the kind of work I do day to day. The diagram shows how one outbound agent runs from start to finish.</p>
+  <p class="sub">The kind of work I do. The diagram shows the general shape of an outbound agent.</p>
 
   <div class="pipe reveal" role="region" tabindex="0" aria-label="Agent pipeline diagram">
     <svg viewBox="0 0 1000 262" role="img" aria-label="Agent pipeline: signals flow into research and drafting, then a quality check. Most runs send automatically; flagged runs go to a person. Both write back to the CRM, with evals tracing every step">
@@ -217,44 +217,38 @@ footer .links{display:flex;gap:16px}footer a{color:var(--mute);text-decoration:n
     <div class="card reveal">
       <div class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
       <h3>Outbound prospecting</h3>
-      <p>Outbound agents that research an account, find the right people and write a personal first email, in the prospect's own language. I've built them for new accounts, warm leads and existing customers. Most emails go out on their own after automated quality checks, and anything flagged goes to a person first.</p>
-      <div class="tags"><span>LangGraph</span><span>LLMs</span><span>enrichment</span><span>quality checks</span></div>
+      <p>Agents that research an account, find the right contacts and write a personal first email. I also run the sending setup behind them, so the emails land.</p>
+      <div class="tags"><span>LangGraph</span><span>LLMs</span><span>enrichment</span><span>deliverability</span></div>
     </div>
     <div class="card reveal">
       <div class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H5.2L4 17.2V4z"/><path d="M8 9h8M8 12h5"/></svg></div>
       <h3>Call-to-CRM automation</h3>
-      <p>An assistant that reads sales calls and keeps the CRM current: deal updates, next steps and notes, ready for the rep to check. It saves reps from writing up every call by hand.</p>
+      <p>An assistant that turns sales calls into CRM updates, so reps don't have to write up every call by hand.</p>
       <div class="tags"><span>call notes</span><span>CRM hygiene</span></div>
-    </div>
-    <div class="card reveal">
-      <div class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
-      <h3>Data pipelines & reporting</h3>
-      <p>I build and maintain the data models that turn raw sales, marketing and billing data into tables people can trust, plus the dashboards on top. That includes tying won deals in the CRM to what actually gets billed. The agents read from the same models, so they and the team work from the same numbers.</p>
-      <div class="tags"><span>SQL</span><span>dbt</span><span>cloud warehouse</span><span>BI dashboards</span></div>
-    </div>
-    <div class="card reveal">
-      <div class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
-      <h3>Inboxes & deliverability</h3>
-      <p>I run the email sending setup behind our outbound agents: how volume spreads across domains and mailboxes, daily send caps, bringing warmed inboxes into rotation, and watching domain health.</p>
-      <div class="tags"><span>deliverability</span><span>send limits</span><span>domain health</span></div>
     </div>
     <div class="card reveal">
       <div class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="2" y="14" width="5" height="6" rx="1.5"/><rect x="17" y="14" width="5" height="6" rx="1.5"/></svg></div>
       <h3>Support agents</h3>
-      <p>Agents that help the support team resolve routine tickets on their own. I also run a regular review of the tickets they hand off to a person, so we know what to teach them next.</p>
+      <p>Agents that resolve routine tickets and hand the rest to a person. I review those handoffs to decide what the agents learn next.</p>
       <div class="tags"><span>ticket triage</span><span>auto-resolution</span><span>human handoff</span></div>
+    </div>
+    <div class="card reveal">
+      <div class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+      <h3>Data pipelines & reporting</h3>
+      <p>Data models and dashboards that give the team and the agents one set of numbers to trust.</p>
+      <div class="tags"><span>SQL</span><span>dbt</span><span>cloud warehouse</span><span>BI dashboards</span></div>
+    </div>
+    <div class="card reveal">
+      <div class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg></div>
+      <h3>Evals &amp; observability</h3>
+      <p>Every run is traced. Failures become test cases, and changes pass evals before they ship.</p>
+      <div class="tags"><span>LangSmith</span><span>evals</span><span>tracing</span></div>
     </div>
     <div class="card reveal">
       <div class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .8-3 2s1.3 1.7 3 2 3 .8 3 2-1.3 2-3 2c-1.4 0-2.5-.5-3-1.5M12 6v2M12 16v2"/></svg></div>
       <h3>Agent cost &amp; ROI</h3>
-      <p>I track what each agent costs and what it produces: cost per meeting, and attribution from the first email to the closed deal. Then I cut waste with prompt caching, the right model for each step, and never paying twice for the same contact data.</p>
+      <p>I track what each agent costs against what it produces, and cut spend with prompt caching and the right model for each step.</p>
       <div class="tags"><span>cost per meeting</span><span>attribution</span><span>prompt caching</span></div>
-    </div>
-    <div class="card reveal wide">
-      <div class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg></div>
-      <h3>Evals &amp; observability</h3>
-      <p>Every agent run leaves a trace. I turn failures into test cases and run changes against evals before they ship, so I catch problems in testing, before they reach a prospect. Prompts live in the repo next to the code and go through the same review and tests.</p>
-      <div class="tags"><span>LangSmith</span><span>evals</span><span>tracing</span></div>
     </div>
   </div>
 </div></section>
@@ -264,8 +258,8 @@ footer .links{display:flex;gap:16px}footer a{color:var(--mute);text-decoration:n
   <h2>Rules I build by</h2>
   <div class="princ">
     <div class="pr reveal"><span class="n">01</span><h3>Measure the business outcome</h3><p>I judge an agent by pipeline, time saved and data quality.</p></div>
-    <div class="pr reveal"><span class="n">02</span><h3>Earn the autonomy</h3><p>Agents start with a person reviewing their work. Once the results hold up, they run on their own, with automated checks on every output and a person for anything that gets flagged.</p></div>
-    <div class="pr reveal"><span class="n">03</span><h3>Keep agents small</h3><p>Each agent does one job. Small agents are easier to test, easier to debug and easier to swap out when a better model comes along.</p></div>
+    <div class="pr reveal"><span class="n">02</span><h3>Earn the autonomy</h3><p>Agents start with a person reviewing their work. Once the results hold up, they run on their own, with checks on every output.</p></div>
+    <div class="pr reveal"><span class="n">03</span><h3>Keep agents small</h3><p>Each agent does one job, which makes it easier to test, debug and swap out when a better model comes along.</p></div>
   </div>
 </div></section>
 
@@ -274,8 +268,8 @@ footer .links{display:flex;gap:16px}footer a{color:var(--mute);text-decoration:n
   <h2>From analytics to applied AI</h2>
   <p class="sub">I joined Zello as a Business Data Analyst and found myself spending more and more time building AI agents and automation. At some point, the old title just stopped being accurate.</p>
   <ul class="tl">
-    <li class="now reveal"><span class="when">2026 → now</span><h3>Applied AI Analyst II <span>· Zello</span></h3><p>Building AI agents and automation for the sales and support teams: outbound prospecting, keeping the CRM current, support tickets, and the data, cost tracking and evals underneath.</p></li>
-    <li class="reveal"><span class="when">2024 → 2026</span><h3>Business Data Analyst <span>· Zello</span></h3><p>Analytics and BI across the business. Promoted into the applied AI role in 2026.</p></li>
+    <li class="now reveal"><span class="when">2026 → now</span><h3>Applied AI Analyst II <span>· Zello</span></h3><p>AI agents and automation for sales and support, plus the data, evals and cost tracking behind them.</p></li>
+    <li class="reveal"><span class="when">2024 → 2026</span><h3>Business Data Analyst <span>· Zello</span></h3><p>Analytics and BI across the business, then promoted into applied AI in 2026.</p></li>
     <li class="reveal"><span class="when">2022 → 2023</span><h3>Data Analyst <span>· Entrio</span></h3><p>ETL, web scraping and Tableau reporting. I also managed our group of interns.</p></li>
     <li class="reveal"><span class="when">2020 → 2022</span><h3>Data Analyst <span>· Navat Capital Management</span></h3><p>Investment and KPI data in R and Python.</p></li>
   </ul>
@@ -295,18 +289,17 @@ footer .links{display:flex;gap:16px}footer a{color:var(--mute);text-decoration:n
 <section id="worldforge"><div class="wrap">
   <p class="kicker">05 / PASSION PROJECT</p>
   <h2>Worldforge</h2>
-  <p class="sub">An original science-fantasy RTS I'm building in Godot 4, plus the world and a novel set in it. It's also where I try out multi-agent engineering ideas before I bring them to work.</p>
+  <p class="sub">An original science-fantasy RTS I'm building in Godot 4, with a world and a novel to go with it. It's also where I test multi-agent engineering ideas before using them at work.</p>
   <div class="wf reveal">
     <img class="banner" src="https://raw.githubusercontent.com/stone-yehuda/worldforge-showcase/main/assets/banner.jpg" alt="Worldforge banner art" loading="lazy">
     <div class="body">
       <div>
         <h3>What's in it so far</h3>
-        <p>Four factions that each play differently, squads that fight in formation, and an enemy AI that runs its own economy.</p>
+        <p>Squads fight in formation, and the enemy AI runs its own economy.</p>
         <ul>
           <li>4 factions, 65 unit chassis across 3 tiers, heroes, tech trees and siege</li>
-          <li>Armor and ward combat model, knockback and braced pikes on a 30 Hz sim</li>
-          <li>Headless AI-vs-AI match simulator for balance sweeps</li>
-          <li>Built by a <b style="color:var(--warm)">multi-agent team</b>: Claude Code, Codex and Gemini on one repo, with claims, cross-reviews and isolated worktrees</li>
+          <li>AI-vs-AI match simulator for balance testing</li>
+          <li>Built by a <b style="color:var(--warm)">multi-agent team</b>: Claude Code, Codex and Gemini working in one repo and reviewing each other</li>
         </ul>
         <a class="btn gold" href="https://github.com/stone-yehuda/worldforge-showcase">Open the gallery →</a>
       </div>
